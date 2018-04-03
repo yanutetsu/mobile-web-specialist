@@ -21,7 +21,6 @@ NOTE: Flexbox Layout は、アプリケーションのコンポーネントや�
 * `フレックスアイテム` - 子要素
 
 ![Flexbox の概要図](./img/flexbox.png)
-参照: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 
 基本的には、main 軸（main start から main end まで）または cross 軸（cross start から cross end まで）に沿ってアイテムが配置されます。
 
@@ -52,13 +51,15 @@ NOTE: Flexbox Layout は、アプリケーションのコンポーネントや�
 
 ### flex-direction
 
+![flex-direction](./img/flex-direction2-1.svg)
+
 ```css
 .container {
   flex-direction: row | row-reverse | column | column-reverse;
 }
 ```
 
-main 軸が確立され、コンテナにフレックスアイテムが配置される方向が定義されます。  
+main 軸が確立され、コンテナにフレックスアイテムが配置される方向が定義されます。  
 Flexbox は単一方向に対するレイアウトです。フレックスアイテムは、主に水平行または垂直列のいずれかにレイアウトすると考えてください。
 
 * `row` (default) - 左から右（アラビア語などでは逆）
@@ -67,6 +68,8 @@ Flexbox は単一方向に対するレイアウトです。フレックスアイ
 * `column-reverse` - 下から上
 
 ### flex-wrap
+
+![flex-wrap](./img/flex-wrap.svg)
 
 ```css
 .container {
@@ -93,6 +96,8 @@ flex-flow: <flex-direction> || <flex-wrap>;
 
 ### justify-content
 
+![justify-content](./img/justify-content-2.svg)
+
 ```css
 .container {
   justify-content: flex-start | flex-end | center | space-between | space-around
@@ -111,22 +116,26 @@ flex-flow: <flex-direction> || <flex-wrap>;
 
 ### align-items
 
+![align-items](./img/align-items.svg)
+
 ```css
 .container {
   align-items: flex-start | flex-end | center | baseline | stretch;
 }
 ```
 
-cross 軸に沿った整列を定義する。
+cross 軸に沿った整列を定義する。
 
 * `flex-start` - cross start に合わせる
 * `flex-end` - cross-end に合わせる
 * `center` - cross 軸の中央に配置する
 * `baseline` - アイテムのベースラインに合わせる
 * `stretch` (default) -
-  コンテナを埋めるように伸びる（※ アイテムの min-width / max-width のほうが優先される）
+  コンテナを埋めるように伸びる（※ アイテムの min-width / max-width のほうが優先される）
 
 ### align-content
+
+![align-content](./img/align-content.svg)
 
 ```css
 .container {
@@ -150,6 +159,8 @@ flex-flow: <flex-direction> || <flex-wrap>;
 
 ### order
 
+![order](./img/order-2.svg)
+
 ```css
 .item {
   order: <integer>; /* default は 0 */
@@ -159,6 +170,8 @@ flex-flow: <flex-direction> || <flex-wrap>;
 `order` プロパティは、フレックスコンテナ内でフレックスアイテムをレイアウトに使用する順序を指定します。要素は、`order` の値の昇順に配置されます。`order` の値が同じ要素は、ソースコード内で現れる順に配置されます。
 
 ### flex-grow
+
+![flex-grow](./img/flex-grow.svg)
 
 ```css
 .item {
@@ -199,6 +212,8 @@ flex-flow: <flex-direction> || <flex-wrap>;
 `flex-grow` と `flex-shrink` と `flex-basis` を同時に定義できるショートハンド。
 
 ### align-self
+
+![align-self](./img/align-self.svg)
 
 ```css
 .item {
