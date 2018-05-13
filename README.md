@@ -1,5 +1,7 @@
 # Study Guide Mobile Web Specialist Certification
 
+https://developers.google.com/training/certification/mobile-web-specialist/StudyGuide_MobileWebSpecialist.pdf
+
 ## Table of Contents
 
 * Basic Website Layout and Styling
