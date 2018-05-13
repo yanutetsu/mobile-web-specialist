@@ -1,6 +1,6 @@
 # Study Guide Mobile Web Specialist Certification
 
-https://developers.google.com/training/certification/mobile-web-specialist/StudyGuide_MobileWebSpecialist.pdf
+[Study Guide](https://developers.google.com/training/certification/mobile-web-specialist/StudyGuide_MobileWebSpecialist.pdf)
 
 ## Table of Contents
 
@@ -9,6 +9,7 @@ https://developers.google.com/training/certification/mobile-web-specialist/Study
 * Front End Networking
   * [Introduction to `fetch()`](./front-end-networking/introduction-to-fetch.md)
 * Accessibility
+  * [Web Fundamentals – Accessibility](./accessibility/web-fundamentals-accessibility/accessibility.md)
 * Progressive Web Apps
 * Performance Optimization and Caching
 * Testing and Debugging
