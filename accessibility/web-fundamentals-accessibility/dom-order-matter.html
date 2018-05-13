@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <style>
+        pre {
+            background: #f7f7f7;
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        pre span {
+            color: magenta;
+        }
+
+        button {
+            width: 160px;
+            background: #e7e7e7;
+            border-radius: 4px;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>DOM ORDER MATTER</h1>
+
+    <pre><code><span>&lt;button&gt;</span>1<span>&lt;/button&gt;</span>
+<span>&lt;button&gt;</span>2<span>&lt;/button&gt;</span>
+<span>&lt;button&gt;</span>3<span>&lt;/button&gt;</span></code></pre>
+
+    <h2>OK</h2>
+    <div>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+    </div>
+
+    <h2>NG</h2>
+    <div>
+        <button style="float:right">1</button>
+        <button>2</button>
+        <button>3</button>
+    </div>
+</body>
+
+</html>
