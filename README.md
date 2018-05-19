@@ -9,7 +9,7 @@
 * Front End Networking
   * [Introduction to `fetch()`](./front-end-networking/introduction-to-fetch.md)
 * Accessibility
-  * [Web Fundamentals – Accessibility](./accessibility/web-fundamentals-accessibility/accessibility.md)
+  * [Web Fundamentals – Accessibility](./accessibility/web-fundamentals-accessibility/index.md)
 * Progressive Web Apps
 * Performance Optimization and Caching
 * Testing and Debugging
