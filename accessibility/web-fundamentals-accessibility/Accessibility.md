@@ -2,9 +2,9 @@
 
 * Overview
 * Focus
-	* [Introduction to Focus](./focus/introduction-to-focus.md)
-	* [DOM Order Matters](./focus/dom-order-matters.md)
-	* [Using tabindex](./focus/using-tabindex.md) 
+  * [Introduction to Focus](./focus/introduction-to-focus.md)
+  * [DOM Order Matters](./focus/dom-order-matters.md)
+  * [Using tabindex](./focus/using-tabindex.md) 
 
 ## Overview
 
