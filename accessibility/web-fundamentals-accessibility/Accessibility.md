@@ -1,10 +1,10 @@
 # Accessibility
 
-* [Overview](https://developers.google.com/web/fundamentals/accessibility/)
+* Overview
 * Focus
-	* [Introduction to Focus](https://developers.google.com/web/fundamentals/accessibility/focus/)
-	* [DOM Order Matters](https://developers.google.com/web/fundamentals/accessibility/focus/dom-order-matters)
-	* [Using tabindex](https://developers.google.com/web/fundamentals/accessibility/focus/using-tabindex) 
+	* [Introduction to Focus](./focus/introduction-to-focus.md)
+	* [DOM Order Matters](./focus/dom-order-matters.md)
+	* [Using tabindex](./focus/using-tabindex.md) 
 
 ## Overview
 
@@ -65,216 +65,21 @@ Accessibility の問題に対処することで、ほとんどの場合はすべ
 * 視覚、運動、聴覚、認識の4つのカテゴリ
 * 状況的、一時的、永続的の3つのタイプ
 
-||状況的|一時的|永続的|
-|---|---|---|---|
-|視覚||振動|失明|
-|運動|赤ん坊を抱えている|腕の骨折、RSI|RSI|
-|聴覚|騒音のあるオフィス|||
-|認識||振動||
+| 状況的 | 一時的             | 永続的        |
+| ------ | ------------------ | ------------- | --- |
+| 視覚   | 振動               | 失明          |
+| 運動   | 赤ん坊を抱えている | 腕の骨折、RSI | RSI |
+| 聴覚   | 騒音のあるオフィス |
+| 認識   | 振動               |
 
 RSI（反復性疲労傷害）: 手根管症候群、テニス エルボー、ばね指
 
 ## Focus
-
-マウスの代わりにキーボードで操作できる機能を構築する方法について説明する。これは、運動障害のあるユーザーにとって重要であり、当然ながら、すべてのユーザーにとって使いやすい UI を作成することにもつながる。
-
-* [Introduction to Focus](https://developers.google.com/web/fundamentals/accessibility/focus/)
-* [DOM Order Matters](https://developers.google.com/web/fundamentals/accessibility/focus/dom-order-matters)
-* [Using tabindex](https://developers.google.com/web/fundamentals/accessibility/focus/using-tabindex) 
-
-### Introduction to Focus
-
-#### Focus とは
-
-フォーカスは、任意の時点におけるキーボード イベントの行き先を決定する。たとえば、テキスト入力フィールドにフォーカスを合わせて入力を開始すると、入力フィールドはキーボード イベントを受信し、入力された文字を表示する。フォーカスがある間は、クリップボードから貼り付けられた入力も受信する。
-
-![フォーカス](./img/keyboard-focus.png)
-
-現在フォーカスされているアイテムは、多くの場合、**フォーカスリング**で示される。このスタイルは、ブラウザとページ作成者が適用したスタイル設定の両方に依存する。たとえば、Chrome では、通常、フォーカスされている要素が青色の枠でハイライト表示されるが、Firefox では破線が使用される。
-
-WebAIM チェックリストのセクション 2.1.1 では、キーボードで処理できないもの（手書き図など）を除き、[すべてのページ機能をキーボードで使用できるようにする必要がある](https://webaim.org/standards/wcag/checklist#sc2.1.1)と明記している。
-
-##### Tab
-
-ユーザーは `Tab` や `Shift + Tab` ,
-または矢印キーを使用して現在フォーカスされている要素を制御できる（※ブラウザによって動作は異なる）
-
-フォーカスが `Tab` でインタラクティブな要素を前後に移動する順序は**タブオーダー**と呼ばれる。論理的なタブオーダーでページを設計することは重要なステップとなる。
-
-#### フォーカス可能とは
-
-暗黙的にフォーカスが可能な要素。これらの要素は自動的にタブオーダーに追加される。
-
-* テキストフィールド
-* ボタン
-* 選択リスト
-
-![フォーカス可能](./img/implicitly-focused.png)
-
-p、div、そのほかのさまざまなページ要素はタブで移動してもフォーカスされない設計になっている。ユーザーが操作できないものは、フォーカスする必要はない。
-
-![フォーカス不可](./img/not-all-elements.png)
-
-#### フォーカスの使用
-
-[サンプル](http://udacity.github.io/ud891/lesson2-focus/01-basic-form/)
-
-* キーボードのみを使用してフォームを操作できると非常に便利
-* いったんマウスに切り替えてからキーボードに戻ってタスクを完了する必要がない
-* フォームで使用されているすべての要素は、暗黙的なフォーカスのあるネイティブ HTML タグであるため、フォームはキーボードで適切に動作し、フォーカス動作の追加や管理のためのコードを記述する必要がない。
-
-### DOM Order Matters
-
-[サンプル](./dom-order-matter.html) 上で `Tab` を押すと**OK例**ではマークアップ順にボタンがフォーカスされる。
-
-DOMでの順序を保持したまま表示順を異なるようにしてしまうと（**NG例**)、フォーカスされる順番が直感的ではなくなる。
-
-WebAIM チェックリストのセクション 1.3.2 では、[コード順によって決定される読み取りとナビゲーションの順序は、論理的かつ直感的にする必要がある](https://webaim.org/standards/wcag/checklist#sc1.3.2)と既定されている。
-
-**習慣的にタブオーダーがおかしなことになっていないかを確認する**
-
-#### 画面外のコンテンツ
-
-現在表示されていなくてもDOMには必要なコンテンツ（レスポンシブサイドナビゲーションなど）にはフォーカスがあたらないようにし、ユーザーが操作できる範囲でのみフォーカスが当たるようにする。
-
-![](./img/slide-in-panel.png)
-
-##### 対応
-
-コンソールで `document.activeElement` を使用することで現在フォーカスされている要素を取得できる。
-
-現在フォーカスが当たっている画面外の要素を特定できたら、それを `display: none` または `visibility: hidden` に設定をすることでフォーカスが当たらなくなる。  
-元に戻す場合は `display: block | inline` または `visibility: visible` を設定する。
-
-![](./img/slide-in-panel2.png)
-![](./img/slide-in-panel3.png)
-
-公開前にデベロッパー側でサイト上をタブで移動し、フォーカスが消えたり、論理的ではない順序で移動したりしないことを確認する。
-
-問題がある場合は、`display: none` または `visibility: hidden` で画面外のコンテンツを適切に非表示にするか、要素の DOM での物理的な位置を変更して論理的な順序になるようにする必要がある。
-
-### Using tabindex
-
-* フォーカス可能なページ要素の明示的な順序を指定できる。
-* フォーカス不可能な要素をタブオーダーに追加できる。
-* 要素をタブオーダーから削除できる。
-
-※任意の要素に適用できるが、必ずしもすべての要素で有用であるとは限らない。
-
-例
-
-`<custom-button tabindex="0">Press Tab to Focus Me!</custom-button>`
-
-`tabindex="0"` で要素を通常のタブオーダーに追加。
-要素は `Tab` キーを押すとフォーカスされ、`focus()`メソッドを呼び出すことでフォーカスが当たる。
-
-```
-<button id="foo" tabindex="-1">I'm not keyboard focusable</button>
-<button onclick="foo.focus();">Focus my sibling</button>
-```
-
-`tabindex="-1"` タブオーダーから要素が削除されるが、 `focus()`メソッドを呼び出すことでフォーカスすることはできる。
-
-```
-<button>I should be first</button>
-<button>And I should be second</button>
-<button tabindex="5">But I jumped to the front!</button>
-```
-
-`tabindex="5"` 0より大きい tabindex を指定すると、通常のタブオーダーの前にその要素へジャンプする。複数の要素のtabindexが0より大きい場合、タブオーダーは0より大きい最小値からスタートし、次第に大きい値の要素に移動する。
-**0より大きいtabindexの使用は、アンチパターン**
-
-#### アンチパターン
-
-* 0より大きいtabindexの使用
-* ヘッダー、イメージ、記事のタイトルなど非入力要素への使用
-
-可能な限り、DOM順序でタブオーダーが論理的になるようにマークアップをする。
-`tabindex` を使用する対象はユーザーが入力を想定する要素に制限する。
-
-* ボタン
-* タブ
-* ドロップダウン
-* テキストフィールド
-* その他、カスタムインタラクティブコントロール
-
-スクリーンリーダーには `tabindex` がない。画像には適切な `alt` 属性をサポートすることでスクリーンリーダーのユーザーも画像のコンテンツを理解することができるようになる。
-
-#### ページレベルでのフォーカス管理
-
-さまざまなコンテンツのセクションを含むシングルページでは、すべてのセクションを一度に見ることができない。このようなページでは、ナビゲーションリンクをクリックすることでページを更新せずに表示可能なコンテンツを変更できる場合がある。
-
-この場合、選択したコンテンツ領域を特定し、`tabindex` に-1を指定して、通常のタブオーダーで表示されないようにし、`focus` メソッドを呼び出す。
-
-#### コンポーネントのフォーカス管理
-
-カスタムコンポーネントを作成している場合は、ネイティブの要素と同様な動作を提供し、ユーザーが主にキーボードだけに頼ってコントロールを操作できるようにする。
-
-例えば `select` 要素では `Tab` でフォーカスし、カーソルキーで選択肢を移動することができる。
-
-とはいえ、実装するキーボードの動作を把握するのが難しいため下記のドキュメントを参考にするのがよい。
-
-[ Accessible Rich Internet Applications (ARIA) Authoring Practices](https://www.w3.org/TR/wai-aria-practices/)
-
-このガイドには、タイプ別のコンポーネントの一覧と、サポートしているキーボードの操作が記載されている。
-
-#### カスタムのラジオボタンを作ってみる
-
-```
-<radio-group>
-  <radio-button>Water</radio-button>
-  <radio-button>Coffee</radio-button>
-  <radio-button>Tea</radio-button>
-  <radio-button>Cola</radio-button>
-  <radio-button>Ginger Ale</radio-button>
-</radio-group>
-```
-
-[ARIA Authoring Practice](https://www.w3.org/TR/wai-aria-practices/)の[Radio Group](https://www.w3.org/TR/wai-aria-practices/#radiobutton)を見ると、サポートする必要がある機能に、**Keyboard Interaction** が記載されている。
-
-* When a radio group receives focus:
-	* If a radio button is checked, focus is set on the checked button.
-	* If none of the radio buttons are checked, focus is set on the first radio button in the group.
-* Space: checks the focused radio button if it is not already checked.
-* Right Arrow and Down Arrow: move focus to the next radio button in the group, uncheck the previously focused button, and check the newly focused button. If focus is on the last button, focus moves to the first button.
-* Left Arrow and Up Arrow: move focus to the previous radio button in the group, uncheck the previously focused button, and check the newly focused button. If focus is on the first button, focus moves to the last button.
-
-上下左右の矢印キーによる動作を `tabindex` の移動で実装する。`tabindex` の移動を機能させるには、現在アクティブな子を除いて、すべての子の `tabindex` を -1 に設定する。
-
-```
-<radio-group>
-  <radio-button tabindex="0">Water</radio-button>
-  <radio-button tabindex="-1">Coffee</radio-button>
-  <radio-button tabindex="-1">Tea</radio-button>
-  <radio-button tabindex="-1">Cola</radio-button>
-  <radio-button tabindex="-1">Ginger Ale</radio-button>
-</radio-group>
-```
-
-
-コンポーネントは、次にキーボードのイベントリスナーを使用し、ユーザーが押したキーを判断する。以前にフォーカスを設定した子の `tabindex` は -1 に設定し、次にフォーカスされる子の `tabindex` を 0 にして、その子の `focus` メソッドを呼び出す。
-
-```
-<radio-group>
-  // Assuming the user pressed the down arrow, we'll focus the next available child
-  <radio-button tabindex="-1">Water</radio-button>
-  <radio-button tabindex="0">Coffee</radio-button> // call .focus() on this element
-  <radio-button tabindex="-1">Tea</radio-button>
-  <radio-button tabindex="-1">Cola</radio-button>
-  <radio-button tabindex="-1">Ginger Ale</radio-button>
-</radio-group>
-```
-
-ユーザーが最後（またはフォーカスの移動方向によっては先頭）の子まで到達すると、ループして先頭（または最後）の子に再度フォーカスする。
-
-[完成版のソース](https://gist.github.com/robdodson/85deb2f821f9beb2ed1ce049f6a6ed47)
-
-
+* [Introduction to Focus](./focus/introduction-to-focus.md)
+* [DOM Order Matters](./focus/dom-order-matters.md)
+* [Using tabindex](./focus/using-tabindex.md) 
 
 ## Semantics
-
 さまざまな支援技術と連携できる堅牢な方法で、UI を作成できるようにする。
-
 ## Accessible Styles
-
 ビジュアルデザインについて検討し、できる限り柔軟で便利な視覚要素を作成するためのテクニックを紹介。
