@@ -5,6 +5,8 @@
   * [Introduction to Focus](./focus/introduction-to-focus.md)
   * [DOM Order Matters](./focus/dom-order-matters.md)
   * [Using tabindex](./focus/using-tabindex.md) 
+* Semantics Build-in
+  * [Introduction to Semantics](./semantics-build-in/introduction-to-semantics.md)
 
 ## Overview
 
