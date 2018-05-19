@@ -7,6 +7,7 @@
   * [Using tabindex](./focus/using-tabindex.md) 
 * Semantics Build-in
   * [Introduction to Semantics](./semantics-build-in/introduction-to-semantics.md)
+  * [The Accessibility Tree](./semantics-build-in/the-accessibility-tree.md)
 
 ## Overview
 
