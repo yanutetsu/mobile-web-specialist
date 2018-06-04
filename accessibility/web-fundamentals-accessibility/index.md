@@ -4,10 +4,11 @@
 * Focus
   * [Introduction to Focus](./focus/introduction-to-focus.md)
   * [DOM Order Matters](./focus/dom-order-matters.md)
-  * [Using tabindex](./focus/using-tabindex.md) 
+  * [Using tabindex](./focus/using-tabindex.md)
 * Semantics Build-in
   * [Introduction to Semantics](./semantics-build-in/introduction-to-semantics.md)
   * [The Accessibility Tree](./semantics-build-in/the-accessibility-tree.md)
+  * [Navigating Content](./semantics-build-in/navigating-content.md)
 
 ## Overview
 
@@ -47,9 +48,9 @@ Accessibility の問題に対処することで、ほとんどの場合はすべ
 
 [Web Content Accessibility Guidelines (WCAG) 2.0](https://www.w3.org/TR/WCAG20/)
 
-いくつかの国では、Accessibility の法的要件でこのガイドラインの使用を義務付けている。またWCAG は次の原則によってまとめられている。
+いくつかの国では、Accessibility の法的要件でこのガイドラインの使用を義務付けている。また WCAG は次の原則によってまとめられている。
 
-#### POURの原則
+#### POUR の原則
 
 * **知覚可能（Perceivable）**: ユーザーはコンテンツを知覚できているか。視覚など、1 つの感覚で認識できるからといって、すべてのユーザーがそれを知覚できるとは限らない。
 
@@ -65,11 +66,11 @@ Accessibility の問題に対処することで、ほとんどの場合はすべ
 
 障害には考慮すべきさまざまなカテゴリーやタイプが存在する。
 
-* 視覚、運動、聴覚、認識の4つのカテゴリ
-* 状況的、一時的、永続的の3つのタイプ
+* 視覚、運動、聴覚、認識の 4 つのカテゴリ
+* 状況的、一時的、永続的の 3 つのタイプ
 
 | 状況的 | 一時的             | 永続的        |
-| ------ | ------------------ | ------------- | --- |
+| ------ | ------------------ | ------------- |
 | 視覚   | 振動               | 失明          |
 | 運動   | 赤ん坊を抱えている | 腕の骨折、RSI | RSI |
 | 聴覚   | 騒音のあるオフィス |
@@ -78,11 +79,15 @@ Accessibility の問題に対処することで、ほとんどの場合はすべ
 RSI（反復性疲労傷害）: 手根管症候群、テニス エルボー、ばね指
 
 ## Focus
+
 * [Introduction to Focus](./focus/introduction-to-focus.md)
 * [DOM Order Matters](./focus/dom-order-matters.md)
-* [Using tabindex](./focus/using-tabindex.md) 
+* [Using tabindex](./focus/using-tabindex.md)
 
 ## Semantics
+
 さまざまな支援技術と連携できる堅牢な方法で、UI を作成できるようにする。
+
 ## Accessible Styles
+
 ビジュアルデザインについて検討し、できる限り柔軟で便利な視覚要素を作成するためのテクニックを紹介。
