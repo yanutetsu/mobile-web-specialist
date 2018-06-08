@@ -11,6 +11,7 @@
   - [Navigating Content](./semantics-build-in/navigating-content.md)
 - Semantics and ARIA
   - [Introduction to ARIA](./semantics-and-aria/introduction-to-aria.md)
+  - [ARIA Labels and Relationships](./semantics-and-aria/aria-labels-and-relationships.md)
 
 ## Overview
 
